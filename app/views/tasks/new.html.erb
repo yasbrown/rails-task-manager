@@ -1,5 +1,11 @@
-<h1>Create new task</h1>
+<div class="container">
+  <div class="create-heade py-3">
+    <h1>Create new task</h1>
+  </div>
 
-<%= render "form", task: @task %>
+  <%= render "form", task: @task %>
 
-<p><%= link_to 'Go back to list', tasks_path %></p>
+  <div class="rtn-btn">
+    <button type="button" class="btn btn-outline-info mt-4"><%= link_to 'Go back to list', tasks_path %></button>
+  </div>
+</div>

@@ -1,7 +1,16 @@
-<h1><%= @task.title %></h1>
+<div class="container">
+  <div class="header d-flex justify-content-between align-items-center py-3">
+    <h1><%= @task.title %></h1>
+    <button type="button" class="btn btn-light"><i class="fa-solid fa-pen-to-square p-1"></i><%= link_to 'Edit this task', edit_task_path %></button>
+  </div>
 
-<p> <%= @task.details %></p>
+  <div class="border-bottom pb-5 pt-2">
+    <div class="details">
+      <p> <%= @task.details %></p>
+    </div>
+  </div>
 
-<p><%= link_to 'Edit this task', edit_task_path %></p>
-
-<p><%= link_to 'Go back to list', tasks_path %></p>
+  <div class="list-btn">
+    <button type="button" class="btn btn-outline-info mt-4"><%= link_to 'Back to list', tasks_path %></button>
+  </div>
+</div>

@@ -1,14 +1,35 @@
-<h1>My tasks</h1>
+<div class="container">
+  <div class="header py-3">
+    <h1>My Tasks</h1>
+  </div>
 
-<div>
-  <% @tasks.each do |task| %>
-    <p><%= link_to task.title, task_path(task) %></p>
-    <%= link_to "Delete Task",
-    task_path(task),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-  <% end %>
-</div>
+  <div class="task-container border-bottom pb-2">
+    <ul>
+    <% @tasks.each do |task| %>
+    <div class="task-card d-flex align-items-center">
+      <div class="completed-icon">
+        <% if task.completed? %>
+            <i class="fa-solid fa-check"></i>
+        <% else %>
+            <i class="fa-solid fa-xmark"></i>
+        <% end %>
+      </div>
 
-<div>
-  <p><%= link_to 'Add new task', new_task_path %></p>
+      <div class="task-name">
+        <li><%= link_to task.title, task_path(task) %></li>
+      </div>
+
+      <div class="delete-icon">
+        <%= link_to task_path(task), data: {turbo_method: :delete,turbo_confirm: "Are you sure?"} do %>
+        <i class="fa-solid fa-trash-can"></i>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="new-task-link py-3">
+    <button type="button" class="btn btn-outline-info"><%= link_to 'Add new task', new_task_path %></button>
+  </div>
 </div>
